@@ -4,21 +4,21 @@
 	{
 		var $clients;	
 			
-		function add_client($email, $email_list)
+		function add_client($input_email, $email_list)
 		{
-			$this->clients[$email] += $email_list;
+			$this->clients[$input_email] += $email_list;
 		}
 		
-		function remove_client($email, $email_list)
+		function remove_client($input_email, $email_list)
 		{
-			if($this->clients[$email] > $email_list)
+			if($this->clients[$input_email] > $email_list)
 			{
-				$this->clients[$email] -= $email_list;
+				$this->clients[$input_email] -= $email_list;
 				return true;
 			} 
-			elseif ($this->clients[$email] == $email_list)
+			elseif ($this->clients[$input_email] == $email_list)
 			{
-				unset($this->clients[$email]);
+				unset($this->clients[$input_email]);
 				return true;
 			}
 			else
