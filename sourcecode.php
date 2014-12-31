@@ -1,5 +1,4 @@
 <?php
-
 	class clientemaillist
 	{
 		var $clients;	
@@ -27,6 +26,4 @@
 			}
 		}
 	}
-		
-
 ?>
