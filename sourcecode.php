@@ -1,23 +1,37 @@
 <?php
+
 	class clientemaillist
-	{
-		var $clients;	
-			
-		function add_client($input_email, $email_list)
+	{	
+		function __construct() 
 		{
-			$this->clients[$input_email] += $email_list;
+			echo 'In clientemaillist constructor\n';
 		}
 		
-		function remove_client($input_email, $email_list)
+		function __destruct()
 		{
-			if($this->clients[$input_email] > $email_list)
+			echo 'In clientemaillist destruct\n';
+		}
+	}
+	
+	class editionlistfunctions extends clientemaillist
+	{
+		public $clients;	
+			
+		function add_client($email, $emaillist)
+		{
+			$this->clients[$email] += $emaillist;
+		}
+		
+		function remove_client($email, $emaillist)
+		{
+			if($this->clients[$email] > $emaillist)
 			{
-				$this->clients[$input_email] -= $email_list;
+				$this->clients[$email] -= $emaillist;
 				return true;
 			} 
-			elseif ($this->clients[$input_email] == $email_list)
+			elseif ($this->clients[$email] == $emaillist)
 			{
-				unset($this->clients[$input_email]);
+				unset($this->clients[$email]);
 				return true;
 			}
 			else
@@ -26,4 +40,29 @@
 			}
 		}
 	}
+	
+	class database extends clientemaillist
+	{
+		function mysql_connect($hostname, $username, $password){;}
+
+		function mysql_select_db($dbname, $dbconnection){;}
+	}
+	
+	class databasedatapull extends database
+	{
+		function db_data_pull()	
+	}
+		
+	$addclient = new editionlistfunctions();
+	$addclient->add_client($email, $emaillist);
+
+	$removeclient = new editionlistfunctions();
+	$removeclient->remove_client($email, $emaillist);
+	
+	$dbconnection = new database();
+	$dbconnection->mysql_connect($hostname, $username, $password);
+	
+	$dbselect = new database();
+	$dbselect->mysql_select_db($dbname, $dbconnection);
+	
 ?>
