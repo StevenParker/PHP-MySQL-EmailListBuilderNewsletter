@@ -1,5 +1,21 @@
 <?php
-require '\sourcecode.php';
+require '\example.php';
+
+	$hostname = 'localhost';
+	$username = 'root';
+	$password = '2axx50Zc156';
+	$dbname = 'emailrecords';
+	$column1 = 'forename';
+	$column2 = 'surname';
+	$column3 = 'emailadress';
+	$forename = $_POST['forename'];
+	$surname = $_POST['surname'];
+	$emailaddress = $_POST['emailaddress'];
+
+	$objdbconnect = mysql_connect	($hostname, $username, $password);
+	$objselect = 	mysql_select_db	($dbname, $dbconnection);
+	$objquery = "	INSERT INTO $dbname	(forename, surname, emailaddress) 
+			VALUES 			($forename, $surname, $emailaddress)";
 ?>
 <html>
 <head>
