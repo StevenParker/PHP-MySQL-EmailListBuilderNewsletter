@@ -12,10 +12,10 @@ require '\example.php';
 	$surname = $_POST['surname'];
 	$emailaddress = $_POST['emailaddress'];
 
-	$objdbconnect = mysql_connect($hostname, $username, $password);
-	$objselect = mysql_select_db($dbname, $dbconnection);
-	$objquery = "	INSERT INTO $dbname		(forename, surname, emailaddress) 
-					VALUES 					($forename, $surname, $emailaddress)";
+	$objdbconnect = mysql_connect	($hostname, $username, $password);
+	$objselect = 	mysql_select_db	($dbname, $dbconnection);
+	$objquery = "	INSERT INTO $dbname	(forename, surname, emailaddress) 
+			VALUES 			($forename, $surname, $emailaddress)";
 ?>
 <html>
 <head>
